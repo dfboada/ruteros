@@ -160,3 +160,6 @@ if resultado:
         elements.append(t)
         # canvas.rotate(90)
         canvas.build(elements)
+
+with open("myfile.zip", "rb") as f:
+    st.download_button("Descargue PDF", f, file_name="archive.zip")
