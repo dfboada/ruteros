@@ -161,5 +161,13 @@ if resultado:
         # canvas.rotate(90)
         canvas.build(elements)
 
-with open("myfile.zip", "rb") as f:
-    st.download_button("Descargue PDF", f, file_name="archive.zip")
+# with open("myfile.zip", "rb") as f:
+#     st.download_button(
+#         "Descargue PDF", f, file_name="archive.zip", mime="application/octet-stream"
+#     )
+
+
+with open("Zona " + str(j) + ".pdf", "rb") as fp:
+    btn = st.download_button(
+        label="Descargue PDF", data=fp, file_name=f"Zona1.pdf", mime="pdf"
+    )
