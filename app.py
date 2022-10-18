@@ -167,7 +167,7 @@ if resultado:
 #     )
 
 
-with open("Zona " + str(j) + ".pdf", "rb") as fp:
+with open("Zona1.pdf", "rb") as fp:
     btn = st.download_button(
         label="Descargue PDF", data=fp, file_name=f"Zona1.pdf", mime="pdf"
     )
