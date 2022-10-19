@@ -36,35 +36,35 @@ class verticalText(Flowable):
         return canv._leading, 1 + canv.stringWidth(self.text, fn, fs)
 
 
-# st.title("Generador de Triquis", anchor=None)
+st.title("Generador de Triquis", anchor=None)
 
-# # Importo el excel subido con rutero
-# dataset = st.file_uploader(
-#     "Cargue rutero con 3 columnas: Vendedor (Zona), Cliente, día de la semana (1-7) ",
-#     type=["xlsx"],
-# )
-# if dataset is not None:
-#     dfrut = pd.read_excel(dataset)
-#     st.sidebar.write(" ### Rows and Columns:", dfrut.shape)
+# Importo el excel subido con rutero
+dataset = st.file_uploader(
+    "Cargue rutero con 3 columnas: Vendedor (Zona), Cliente, día de la semana (1-7) ",
+    type=["xlsx"],
+)
+if dataset is not None:
+    dfrut = pd.read_excel(dataset)
+    st.sidebar.write(" ### Rows and Columns:", dfrut.shape)
 
-# # Importo el excel subido con las SKUs a medir
-# datasetsku = st.file_uploader(
-#     "Cargue nombre referencias a medir (1era columna: max 20 SKUs (max 15 caracteres), 2nda columna: 1 si pertenece a Champions 0dlc)",
-#     type=["xlsx"],
-# )
-# if datasetsku is not None:
-#     dfsku = pd.read_excel(datasetsku)
-#     st.sidebar.write(" ### Rows and Columns:", dfsku.shape)
+# Importo el excel subido con las SKUs a medir
+datasetsku = st.file_uploader(
+    "Cargue nombre referencias a medir (1era columna: max 20 SKUs (max 15 caracteres), 2nda columna: 1 si pertenece a Champions 0dlc)",
+    type=["xlsx"],
+)
+if datasetsku is not None:
+    dfsku = pd.read_excel(datasetsku)
+    st.sidebar.write(" ### Rows and Columns:", dfsku.shape)
 
-# # Agrego el Boton de generar
-# resultado = st.button("Generar")  # Devuleve True cuando el usuario hace click
+# Agrego el Boton de generar
+resultado = st.button("Generar")  # Devuleve True cuando el usuario hace click
 
 resultado = True
 
 if resultado:
 
-    dfrut = pd.read_excel("data/Rutero.xlsx")
-    dfsku = pd.read_excel("data/Productos.xlsx")
+    # dfrut = pd.read_excel("data/Rutero.xlsx")
+    # dfsku = pd.read_excel("data/Productos.xlsx")
 
     # Rutero
     dfrut.rename(
