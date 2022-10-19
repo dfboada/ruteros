@@ -36,6 +36,7 @@ class verticalText(Flowable):
         return canv._leading, 1 + canv.stringWidth(self.text, fn, fs)
 
 
+# Set title
 st.title("Generador de Triquis", anchor=None)
 
 # Importo el excel subido con rutero
@@ -112,12 +113,12 @@ if resultado:
 
         # Imprimir en PDF con reportlab
         canvas = SimpleDocTemplate(
-            "Zona " + str(zonas[i - 1]) + ".pdf",
+            f"Zona {zonas[i - 1]}.pdf",
             pagesize=landscape(letter),
             topMargin=1 * cm,
             bottomMargin=1 * cm,
         )
-        titulo = "Zona " + str(zonas[i - 1])
+        titulo = f"Zona {zonas[i - 1]}"
         c_width = [4 * cm] + [1 * cm] * 16  # width of the columns
         r_width = [3 * cm] + [0.5 * cm] * (dfunico.shape[0])
         data1 = dfunico.values.tolist()
