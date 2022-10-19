@@ -50,7 +50,7 @@ if dataset is not None:
 
 # Importo el excel subido con las SKUs a medir
 datasetsku = st.file_uploader(
-    "Cargue nombre referencias a medir (1era columna: max 20 SKUs (max 15 caracteres), 2nda columna: 1 si pertenece a Champions 0dlc)",
+    "Cargue nombre referencias a medir (1era columna: max 20 SKUs (max 15 caracteres), 2nda columna: 1 si pertenece a Champions, 0 de lo contrario)",
     type=["xlsx"],
 )
 if datasetsku is not None:
