@@ -59,8 +59,6 @@ if datasetsku is not None:
 # Agrego el Boton de generar
 resultado = st.button("Generar")  # Devuleve True cuando el usuario hace click
 
-resultado = True
-
 if resultado:
 
     # dfrut = pd.read_excel("data/Rutero.xlsx")
