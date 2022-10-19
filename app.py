@@ -56,6 +56,9 @@ resultado = st.button("Generar")  # Devuleve True cuando el usuario hace click
 
 if resultado:
 
+    # dfrut = pd.read_excel("data/Rutero.xlsx")
+    # dfsku = pd.read_excel("data/Productos.xlsx")
+
     # Rutero
     dfrut.rename(
         columns={
@@ -161,13 +164,7 @@ if resultado:
         # canvas.rotate(90)
         canvas.build(elements)
 
-# with open("myfile.zip", "rb") as f:
-#     st.download_button(
-#         "Descargue PDF", f, file_name="archive.zip", mime="application/octet-stream"
-#     )
-
-
-with open("Zona1.pdf", "rb") as fp:
-    btn = st.download_button(
-        label="Descargue PDF", data=fp, file_name=f"Zona1.pdf", mime="pdf"
-    )
+    with open("Zona 1.pdf", "rb") as fp:
+        btn = st.download_button(
+            label="Descargue PDF1", data=fp, file_name=f"Zona1.pdf", mime="pdf"
+        )
