@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # Triqui estándar
 
+import base64
+from zipfile import ZipFile
+
 # Importo paquetes
 import numpy as np
 import pandas as pd
@@ -32,6 +35,8 @@ class verticalText(Flowable):
         fn, fs = canv._fontname, canv._fontsize
         return canv._leading, 1 + canv.stringWidth(self.text, fn, fs)
 
+
+st.title("Generador de Triquis", anchor=None)
 
 # Importo el excel subido con rutero
 dataset = st.file_uploader(
@@ -164,7 +169,22 @@ if resultado:
         # canvas.rotate(90)
         canvas.build(elements)
 
-    with open("Zona 1.pdf", "rb") as fp:
-        btn = st.download_button(
-            label="Descargue PDF1", data=fp, file_name=f"Zona1.pdf", mime="pdf"
-        )
+    # Crear ZIP file
+    zipObj = ZipFile("triquiResult.zip", "w")
+
+    # Add multiple files to the zip
+    for w in range(1, cantvendedores + 1):
+        zipObj.write(f"Zona {w}.pdf")
+
+    # close the Zip File
+    zipObj.close()
+
+    ZipfileDotZip = "triquiResult.zip"
+
+    with open(ZipfileDotZip, "rb") as f:
+        bytes = f.read()
+        b64 = base64.b64encode(bytes).decode()
+        href = f"<a href=\"data:file/zip;base64,{b64}\" download='{ZipfileDotZip}.zip'>\
+            Descarga Formatos\
+        </a>"
+    st.sidebar.markdown(href, unsafe_allow_html=True)
