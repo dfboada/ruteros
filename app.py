@@ -62,7 +62,7 @@ resultado = st.button("Generar")  # Devuleve True cuando el usuario hace click
 
 if resultado:
 
-    # dfrut = pd.read_excel("data/Rutero.xlsx")
+    # dfrut = pd.read_excel("data/Rutero.xlsx", dtype={"Cliente": "str"})
     # dfsku = pd.read_excel("data/Productos.xlsx")
 
     # Rutero
@@ -74,7 +74,8 @@ if resultado:
         },
         inplace=True,
     )
-    dfrut["Cliente"] = dfrut["Cliente"].str[:20]
+    dfrut["Cliente"] = dfrut["Cliente"].astype("str")
+    dfrut["Cliente"] = dfrut["Cliente"].str[:16]
 
     dfsku.rename(columns={list(dfsku)[0]: "SKU"}, inplace=True)
     dfsku.rename(columns={list(dfsku)[1]: "Champions"}, inplace=True)
